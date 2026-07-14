@@ -1,0 +1,39 @@
+# joy_driver_params.yaml
+# ----------------------
+# Override any parameter here; pass to launch with:
+#   ros2 launch joy_driver joy_driver.launch.py params_file:=<path>
+#
+# PS4 / DualShock 4 default button map (ros-humble joy):
+#   0  Cross   (×)
+#   1  Circle  (○)
+#   2  Square  (□)
+#   3  Triangle
+#   4  L1
+#   5  R1       ← dead-man switch
+#   6  L2
+#   7  R2
+#   8  Share
+#   9  Options
+#  10  PS
+#  11  L3
+#  12  R3
+
+flag_node:
+  ros__parameters:
+    cross_btn:  0
+    circle_btn: 1
+    square_btn: 2
+
+drive_node:
+  ros__parameters:
+    r1_btn:           10
+    # Square path
+    square_speed:     1.0    # m/s
+    square_side_time: 3.0    # seconds per straight leg
+    square_turn_time: 1.6    # seconds per 90° turn
+    square_steer:     0.5    # steering angle during turn (rad)
+    # Circle path
+    circle_speed:     1.0    # m/s
+    circle_steer:     0.3    # constant steering angle (rad)
+    # Loop rate
+    ctrl_hz:          20.0

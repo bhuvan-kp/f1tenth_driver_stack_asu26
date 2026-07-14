@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>realsense_dual_publisher</name>
+  <version>0.1.0</version>
+  <description>
+    Two-node ROS 2 package for the Intel RealSense D435i: one node publishes
+    RGB and IR (infrared) image data, the other publishes IMU data, each to
+    its own topic.
+  </description>
+  <maintainer email="you@example.com">you</maintainer>
+  <license>Apache-2.0</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <!-- pyrealsense2 is built from source alongside librealsense in the
+       Docker image and is not a rosdep-resolvable package -->
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,24 @@
+pure_pursuit_node:
+  ros__parameters:
+    waypoints_file: "/f1tenth_ws/src/pure_pursuit_pkg/config/waypoints.csv"
+    odom_topic: "/odom"     # change to /odom if running on the real car / f1tenth_driver_stack
+    drive_topic: "/drive"
+
+    # Control law gains (heading error, signed lateral error, yaw-rate damping, speed P-gain)
+    lookahead_distance: 1.0              # meters, along-centerline arc length
+    v_target: 2.0                        # m/s
+    k_heading: 3.5
+    k_lateral: 3.0
+    k_damp: 1.0
+    k_speed: 1.0
+
+    # Vehicle / actuator limits
+    max_steering_angle: 0.4189           # rad (~24 deg), symmetric +/- limit on delta
+    steering_velocity_min: -3.2          # rad/s
+    steering_velocity_max: 3.2           # rad/s
+    accel_max: 9.51                      # m/s^2
+    min_speed: 0.0
+    max_speed: 6.0
+    wheelbase: 0.33                      # meters, reference only (not used in this control law)
+
+    publish_markers: true

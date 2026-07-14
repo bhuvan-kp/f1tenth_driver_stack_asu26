@@ -1,0 +1,19 @@
+services:
+  drive_stack:
+    build: .
+    container_name: f1tenth_driver_stack
+    restart: always
+    network_mode: "host"
+    ipc: host
+    pid: host
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - ROS_DOMAIN_ID=0
+      - ROS_LOCALHOST_ONLY=0
+      - FASTDDS_BUILTIN_TRANSPORTS=UDPv4
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./src:/f1tenth_ws/src
+      - /dev:/dev
+    working_dir: /f1tenth_ws

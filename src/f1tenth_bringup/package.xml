@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>f1tenth_bringup</name>
+  <version>0.1.0</version>
+  <description>
+    Top-level launch package for the F1TENTH car. Combines the launch
+    files of every subsystem package (driver stack, joystick/teleop,
+    sensors, ...) into one bringup launch file. To add a new subsystem,
+    add its package as an exec_depend below and add one
+    IncludeLaunchDescription block in launch/bringup_launch.py.
+  </description>
+  <maintainer email="you@example.com">you</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>f1tenth_stack</exec_depend>
+  <exec_depend>joy_driver</exec_depend>
+  <exec_depend>realsense_dual_publisher</exec_depend>
+  <exec_depend>natnet_ros2</exec_depend>
+  <exec_depend>ppo_controller</exec_depend>
+  <exec_depend>ppo_interfaces</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
